@@ -6,202 +6,33 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Google Maps Prototype</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap" rel="stylesheet">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Open Sans', sans-serif;
-    }
-    header {
-      position: fixed;
-      width: 100vw;
-      height: 5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    }
-    #background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 150vh;
-      width: 100%;
-      background-image: url('./images/nasa-Q1p7bh3SHj8-unsplash.jpg');
-      background-size: cover;
-      /* filter: brightness(60%); */
-      z-index: -1;
-      box-shadow: 1vw -50vh 50vh 0 #202020 inset;
-    }
-    nav {
-      height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 4rem;
-    }
-    nav div {
-      flex: 1;
-    }
-    nav ul {
-      flex: 1;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      color: rgba(255, 255, 255, 0.9);
-      display: flex;
-      justify-content: space-around;
-    }
-    #logo-text {
-      color: rgba(255, 255, 255, 0.9);
-    }
-    #first-screen {
-      height: 100vh;
-      padding: 0 10rem;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    #first-screen h1 {
-      font-size: 4rem;
-      text-transform: uppercase;
-      margin: 0;
-      font-weight: 600;
-    }
-    #first-screen p {
-      width: 50%;
-      margin: 2rem 0;
-      font-weight: 300;
-    }
-    #first-screen input {
-      height: 2rem;
-      width: 70%;
-      background-color: rgba(255, 255, 255, 0.75);
-      border: none;
-      padding: 1rem 1.8rem;
-      font-size: 1.2rem;
-      font-weight: 300;
-    }
-    #first-screen-search {
-      display: flex;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-    #first-screen-search img {
-      transform: translateX(-3rem);
-      cursor: pointer;
-    }
-    .primary-btn {
-      background-color: #ffffff;
-      width: 10rem;
-      height: 3rem;
-      border-radius: 1.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-      margin-right: 1rem;
-      cursor: pointer;
-    }
-    #intro-screen {
-      height: 70vh;
-      padding: 0 10rem;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 30% auto;
-      gap: 1rem;
-      background: linear-gradient(to bottom, transparent 50vh, #202020 20vh);
-    }
-    #intro-header {
-      color: #ffffff;
-      text-transform: capitalize;
-      font-size: 2.65rem;
-      width: 70%;
-      grid-area: 1 / 1 / 1 / 4;
-      opacity: 0;
-    }
-    .intro {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .intro h2 {
-      color: #ffffff;
-      font-size: 2.2rem;
-    }
-    .intro p {
-      color: #91949a;
-      font-weight: 300;
-    }
-    #explore-screen {
-      height: 100vh;
-      padding: 0 10rem;
-      background: linear-gradient(to bottom, #202020 calc(100vh - 450px), transparent 450px);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 15% auto;
-      gap: 1rem;
-      box-shadow: 0 60vh 500px 0px #202020 inset;
-      color: #ffffff;
-    }
-    #explore-header {
-      opacity: 0;
-      color: #ffffff;
-      text-transform: capitalize;
-      font-size: 2.65rem;
-      grid-area: 1 / 1 / 1 / 4;
-    }
-    .explore-tile {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    .explore-tile img {
-      width: 100%;
-      height: 150px;
-    }
-    footer {
-      height: 150px;
-      padding: 0 10rem;
-      display: flex;
-      justify-content: space-between;
-      position: relative;
-      color: #ffffff;
-    }
-    #footer-background {
-      height: 600px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: url('./images/footer-dark-map.png');
-      background-size: cover;
-      z-index: -1;
-      filter: brightness(80%);
-    }
-    .fade-in {
-      animation: fadeIn 0.5s ease-in-out 0s forwards;
-    }
-    .move-up {
-      transform: translateY(-20px);
-      transition: transform 0.5s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="background"></div>
-  <!-- <header>
+  <header>
     <nav>
-      <div><p id="logo-text">Climate Tree</p></div>
-      <ul>
-        <li>MAP</li>
-        <li>ABOUT</li>
+      <div class="logo">
+        <img src="./images/white-logo.png" alt="climate tree logo">
+        <p id="logo-text">Climate Tree</p>
+      </div>
+      <ul class="nav-links">
+        <li class="underline-hover">
+          <a href="#">HOME</a>
+        </li>
+        <li class="underline-hover">
+          <a href="#">MAP</a>
+        </li>
+        <li class="underline-hover">
+          <a href="#">ABOUT</a>
+        </li>
       </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
     </nav>
-  </header> -->
+  </header>
   <section id="first-screen">
     <h1>Climate Tree</h1>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
@@ -209,28 +40,32 @@
       <input type="text" placeholder="Enter a city or ZIP code" />
       <img src="images/search.svg" alt="search" id="search">
     </div>
-    <!-- <div>
-      <button class="primary-btn">Map</button>
-      <button class="primary-btn">Explore</button>
-    </div> -->
+    <div>
+      <button class="primary-btn">
+        <a href="#explore-screen">Get Started</a></button>
+      <button class="primary-btn">
+        <a href="#">Map</a>
+      </button>
+    </div>
+    <div id="background"></div>
   </section>
   <section id="intro-screen">
-    <h1 id="intro-header">The best search service for climate actions</h1>
+    <h2 id="intro-header">The best search service for climate actions</h2>
     <div class="intro">
-      <h2>Search</h2>
+      <h3>Search</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis alias cupiditate nobis. Blanditiis, nihil! Ea, porro accusantium!</p>
     </div>
     <div class="intro">
-      <h2>Share</h2>
+      <h3>Share</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis alias cupiditate nobis. Blanditiis, nihil!</p>
     </div>
     <div class="intro">
-      <h2>Usable</h2>
+      <h3>Usable</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur corrupti esse, ducimus, nihil voluptatum voluptates ad et iusto reiciendis minus, facere maxime dolor neque.</p>
     </div>
   </section>
   <section id="explore-screen">
-    <h1 id="explore-header">Explore climate actions</h1>
+    <h2 id="explore-header">Explore climate actions</h2>
     <div class="explore-tile">
       <img src="https://picsum.photos/240/100" alt="">
       <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod eaque sunt velit ducimus! Possimus, ex a fugiat voluptatem nostrum aut.</p>
@@ -245,8 +80,12 @@
     </div>
   </section>
   <footer>
-    <p>All rights reserved</p>
-    <p>Climate Tree</p>
+    <div>
+      <p>All rights reserved</p>
+    </div>
+    <div>
+      <p>Climate Tree</p>
+    </div>
     <div>
       <p>Contact</p>
       <p>Social</p>
@@ -256,7 +95,7 @@
   <script>
     function fadeIn() {
       if (window.scrollY > window.innerHeight / 3) {
-        document.getElementById('intro-header').classList.add('fade-in', 'move-up');
+        document.getElementById('intro-header').classList.add('fade-in');
         const introSections = [...document.querySelectorAll('.intro')];
         for (let i = 0; i < introSections.length; i++) {
           setTimeout(() => {
@@ -265,7 +104,7 @@
         }
       }
       if (window.scrollY > window.innerHeight * 4 / 5) {
-        document.getElementById('explore-header').classList.add('fade-in', 'move-up');
+        document.getElementById('explore-header').classList.add('fade-in');
         const exploreTiles = [...document.querySelectorAll('.explore-tile')];
         for (let i = 0; i < exploreTiles.length; i++) {
           setTimeout(() => {
@@ -275,9 +114,26 @@
       }
     }
     window.addEventListener('scroll', fadeIn);
-    document.getElementById('search').addEventListener('click', () => {
-      window.open('./map.html');
-    });
+    // document.getElementById('search').addEventListener('click', () => {
+    //   window.open('./map.html');
+    // });
+    function navSlide() {
+      const burger = document.querySelector('.burger');
+      const nav = document.querySelector('.nav-links');
+      const navLinks = document.querySelectorAll('.nav-links li');
+      burger.addEventListener('click', () => {
+        nav.classList.toggle('nav-active');
+        navLinks.forEach((link, index) => {
+          if (link.style.animation) {
+            link.style.animation = '';
+          } else {
+            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7}s`;
+          }
+        });
+        burger.classList.toggle('toggle');
+      });
+    }
+    navSlide();
   </script>
 </body>
 </html>
